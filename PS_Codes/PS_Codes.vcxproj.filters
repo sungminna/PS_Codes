@@ -27,5 +27,14 @@
     <ClCompile Include="boj_1260.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="bj_4948.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="boj_4963.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="bj_6603.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
