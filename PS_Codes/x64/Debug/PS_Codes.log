@@ -1,5 +1,2 @@
 ﻿  bj_1149.cpp
-C:\Users\DEV\source\repos\PS_Codes\PS_Codes\bj_1149.cpp(20,12): warning C4101: 'z' :참조되지 않은 지역 변수입니다.
-C:\Users\DEV\source\repos\PS_Codes\PS_Codes\bj_1149.cpp(20,9): warning C4101: 'y' :참조되지 않은 지역 변수입니다.
-C:\Users\DEV\source\repos\PS_Codes\PS_Codes\bj_1149.cpp(20,6): warning C4101: 'x' :참조되지 않은 지역 변수입니다.
-  PS_Codes.vcxproj -> C:\Users\DEV\source\repos\PS_Codes\x64\Debug\PS_Codes.exe
+  PS_Codes.vcxproj -> C:\Users\sungm\source\repos\PS_Codes\x64\Debug\PS_Codes.exe
