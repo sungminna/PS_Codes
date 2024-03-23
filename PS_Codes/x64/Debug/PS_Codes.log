@@ -1,2 +1,3 @@
-﻿  bj_1629.cpp
-  PS_Codes.vcxproj -> C:\Users\sungm\source\repos\PS_Codes\x64\Debug\PS_Codes.exe
+﻿  boj_1389.cpp
+C:\Users\DEV\source\repos\PS_Codes\PS_Codes\boj_1389.cpp(40,11): warning C4553: '==': 식의 결과가 사용되지 않습니다. '='을(를) 의도했습니까?
+  PS_Codes.vcxproj -> C:\Users\DEV\source\repos\PS_Codes\x64\Debug\PS_Codes.exe
