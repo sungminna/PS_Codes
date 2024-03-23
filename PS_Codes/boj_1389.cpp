@@ -1,50 +1,45 @@
 #include<iostream>
-#include<vector>
-
-int search(int n, int t, int depth, std::vector<int> flist[101], int usr[101]);
+#include<algorithm>
 
 int main() {
 	int n, m;
-	std::vector<int> flist[101];
 	std::cin >> n >> m;
-	int usr[101] = { 0, };
 	int x, y;
-	std::vector<int> link;
+	int frd[101][101];
 	for (int i = 0; i < 101; i++) {
-		flist[i] = link;
+		for (int j = 0; j < 101; j++) {
+			if (i == j) {
+				frd[i][j] = 0;
+			}
+			else {
+				frd[i][j] = 999999;
+			}
+		}
 	}
 	for (int i = 0; i < m; i++) {
 		std::cin >> x >> y;
-		flist[x].push_back(y);
-		flist[y].push_back(x);
+		frd[x][y] = 1;
+		frd[y][x] = 1;
 	}
-	int min = 5000 * 101;
-	int res;
-	for (int i = 1; i <= n; i++) {
-		int usr[101] = {0, };
-		int found[101] = { 0, };
-		res = search(n, i, 1, flist, usr);
-		if (res < min) {
-			min = res;
+	for (int k = 1; k <= n; k++) {
+		for (int a = 1; a <= n; a++) {
+			for (int b = 1; b <= n; b++) {
+				frd[a][b] = std::min(frd[a][b], frd[a][k] + frd[k][b]);
+			}
 		}
 	}
-	std::cout << min;
-
-}
-
-int search(int n, int t, int depth, std::vector<int> flist[101], int usr[101]) {
-	std::vector<int> link = flist[t];
-	int sum = 0;
-	for (std::vector<int>::iterator itr = link.begin(); itr != link.end(); ++itr) {
-		if (usr[t] == 0) {
-			usr[t] == depth;
+	int min = 999999;
+	int sum;
+	int min_p = -1;
+	for (int a = 1; a <= n; a++) {
+		sum = 0;
+		for (int b = 1; b <= n; b++) {
+			sum += frd[a][b];
+		}
+		if (sum < min) {
+			min = sum;
+			min_p = a;
 		}
 	}
-	for (int i = 1; i <= n; i++) {
-		sum += usr[i];
-		if (usr[i] == 0) {
-			search(n, i, depth++, flist, usr);
-		}
-	}
-	return sum;
+	std::cout << min_p;
 }

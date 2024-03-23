@@ -1,56 +1,22 @@
 #include<iostream>
-#include<vector>
+#include<algorithm>
 
-int choose(int n, int level, std::vector<std::vector<int>> house, int sum, int last, std::vector<int> levmin);
 int main() {
 	int n;
-	std::vector<int> levmin;
-	std::vector<std::vector<int>> house;
+	int house[1001][3];
 	std::cin >> n;
 	int r, g, b;
-	for (int i = 0; i < n; i++) {
+	house[0][0] = 0;
+	house[0][1] = 0;
+	house[0][2] = 0;
+
+	for (int i = 1; i <= n; i++) {
 		std::cin >> r >> g >> b;
-		std::vector<int> rgb;
-		rgb.push_back(r);
-		rgb.push_back(g);
-		rgb.push_back(b);
-		house.push_back(rgb);
-		levmin.push_back(1000 * 2000);
+		house[i][0] = std::min(house[i - 1][1], house[i - 1][2]) + r;
+		house[i][1] = std::min(house[i - 1][0], house[i - 1][2]) + g;
+		house[i][2] = std::min(house[i - 1][0], house[i - 1][1]) + b;
 	}
 
-	int res = choose(n, 0, house, 0, 9, levmin);
+	int res = std::min(house[n][2], std::min(house[n][1], house[n][0]));
 	std::cout << res;
-}
-
-int choose(int n, int level, std::vector<std::vector<int>> house, int sum, int last, std::vector<int> levmin) {
-	std::vector<int> rgb;
-	rgb = house[level];
-	int tsum = 0;
-	int min = 1000 * 2000;
-	for (int i = 0; i < 3; i++) {
-		if (i == last) {
-			continue;
-		}
-		else {
-			if (level < n - 1) {
-				tsum = choose(n, level + 1, house, sum, i, levmin) + rgb[i];
-				if (tsum < min) {
-					min = tsum;
-				}
-			}
-			if (level == n - 1) {
-				tsum = rgb[i];
-				if (tsum < min) {
-					min = tsum;
-				}
-			}
-		}
-	}
-	if (levmin[level] < min) {
-		return levmin[level];
-	}
-	else {
-		levmin[level] = min;
-	}
-	return min;
 }
