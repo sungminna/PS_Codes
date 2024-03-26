@@ -1,44 +1,27 @@
 #include<iostream>
-#include<queue>
 
 int main() {
-	int n;
+	long long n;
 	std::cin >> n;
-	int arr[101][101];
-	int vis[101][101] = { {0, } };
-	for (int i = 0; i < n; i++) {
-		std::cin >> arr[n][0] >> arr[n][1] >> arr[n][2] >> arr[n][3];
+	long long arr[101][101];
+	long long vis[101][101] = { {0,  } };
+	for (long long i = 0; i < n; i++) {
+		for (long long j = 0; j < n; j++) {
+			std::cin >> arr[i][j];
+		}
 	}
-	int x, y;
-	int jump;
-	std::queue<std::pair<int, int>> q;
-	q.push(std::make_pair(0, 0));
-	while (1) {
-		x = q.front().first;
-		y = q.front().second;
-		q.pop();
-		if (x == n - 1 && y == n - 1) {
-			std::cin >> vis[n - 1][n - 1];
+	long long jump;
+	vis[0][0] = 1;
+	for (long long i = 0; i < n; i++) {
+		for (long long j = 0; j < n; j++) {
+			jump = arr[i][j];
+			if (i + jump < n && jump != 0) {
+				vis[i + jump][j] += vis[i][j];
+			}
+			if (j + jump < n  && jump != 0) {
+				vis[i][j + jump] += vis[i][j];
+			}
 		}
-		jump = arr[x][y];
-		if (x + jump < n && vis[x+jump][y] == 0) {
-			vis[x + jump][y] = vis[x][y] + 1;
-			q.push(std::make_pair(x + jump, y));
-		}
-		if (x - jump >= 0 && vis[x-jump][y] == 0) {
-			vis[x - jump][y] = vis[x][y] + 1;
-			q.push(std::make_pair(x - jump, y));
-		}
-		if (y + jump < n && vis[x][y+jump] == 0) {
-			vis[x][y + jump] = vis[x][y] + 1;
-			q.push(std::make_pair(x, y + jump));
-		}
-		if (y - jump >= 0 && vis[x][y-jump] == 0) {
-			vis[x][y - jump] = vis[x][y] + 1;
-			q.push(std::make_pair(x, y - jump));
-		}
-
 	}
-
-
+	std::cout << vis[n - 1][n - 1];
 }
