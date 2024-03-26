@@ -54,5 +54,8 @@
     <ClCompile Include="bj_1697.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="boj_1890.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
