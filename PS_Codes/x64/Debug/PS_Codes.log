@@ -1,2 +1,4 @@
-﻿  boj_1890.cpp
+﻿  boj_1931.cpp
+C:\Users\DEV\source\repos\PS_Codes\PS_Codes\boj_1931.cpp(5,18): warning C4101: 'a' :참조되지 않은 지역 변수입니다.
+C:\Users\DEV\source\repos\PS_Codes\PS_Codes\boj_1931.cpp(5,21): warning C4101: 'b' :참조되지 않은 지역 변수입니다.
   PS_Codes.vcxproj -> C:\Users\DEV\source\repos\PS_Codes\x64\Debug\PS_Codes.exe
